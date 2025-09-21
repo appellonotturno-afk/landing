@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Appello Notturno</title>
+
+  <!-- Meta for social preview -->
+  <meta property="og:title" content="Appello Notturno" />
+  <meta property="og:description" content="Link in bio — resta aggiornato, entra nella promo." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="" />
+  <meta name="theme-color" content="#0a0f1f" />
+
+  <style>
+    :root {
+      --bg-1: #05070d;        /* quasi nero, blu notte */
+      --bg-2: #0a1224;        /* blu notte profondo */
+      --text: #E8ECF3;        /* testo chiaro freddo */
+      --muted: #A9B3C7;       /* sottotitoli */
+      --btn: #EAF2FF;         /* pulsanti chiari */
+      --btn-text: #0b1020;    /* testo pulsanti scuro */
+      --btn-hover: #ffffff;   /* hover più chiaro */
+      --ring: rgba(134,170,255,0.35); /* alone glow */
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 70% -10%, rgba(30,60,140,.18), transparent 60%),
+                  radial-gradient(800px 600px at -10% 110%, rgba(20,40,100,.22), transparent 60%),
+                  linear-gradient(180deg, var(--bg-2), var(--bg-1));
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .wrap {
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 560px;
+      text-align: center;
+      padding: 40px 24px 32px;
+      background: rgba(5, 8, 20, 0.45);
+      border: 1px solid rgba(120, 150, 220, 0.18);
+      border-radius: 18px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 10px 35px rgba(0,0,0,.35), 0 0 0 4px rgba(134,170,255,0.05) inset;
+    }
+
+    .title {
+      font-weight: 800;
+      letter-spacing: .5px;
+      margin: 0 0 8px;
+      font-size: clamp(28px, 7vw, 40px);
+      line-height: 1.08;
+    }
+
+    .subtitle {
+      margin: 0 0 28px;
+      font-size: 14px;
+      color: var(--muted);
+      letter-spacing: .2px;
+    }
+
+    .buttons {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr;
+      margin: 10px auto 0;
+      width: min(420px, 100%);
+    }
+
+    .btn {
+      appearance: none;
+      border: none;
+      border-radius: 14px;
+      padding: 14px 18px;
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: .2px;
+      cursor: pointer;
+      transition: transform .06s ease, box-shadow .2s ease, background-color .2s ease;
+      box-shadow: 0 8px 22px rgba(0,0,0,.35), 0 0 0 3px var(--ring);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn:active { transform: translateY(1px); }
+
+    .btn-primary {
+      background: var(--btn);
+      color: var(--btn-text);
+    }
+    .btn-primary:hover { background: var(--btn-hover); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid rgba(200, 220, 255, 0.35);
+      box-shadow: 0 8px 22px rgba(0,0,0,.35), 0 0 0 3px rgba(134,170,255,0.18);
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.06);
+      box-shadow: 0 10px 26px rgba(0,0,0,.38), 0 0 0 3px rgba(134,170,255,0.28);
+    }
+
+    .footer {
+      margin-top: 26px;
+      font-size: 12px;
+      color: var(--muted);
+      opacity: .9;
+    }
+
+    /* Small safe area for iOS notch */
+    @supports (padding: max(0px)) {
+      .wrap { padding-left: max(20px, env(safe-area-inset-left)); padding-right: max(20px, env(safe-area-inset-right)); }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card" aria-labelledby="title">
+      <h1 id="title" class="title">Appello Notturno</h1>
+      <p class="subtitle">Link in bio — resta aggiornato.</p>
+
+      <div class="buttons">
+        <a class="btn btn-primary" href="https://www.instagram.com/appello.notturno/" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn btn-secondary" href="https://example.com/promo" target="_blank" rel="noopener">Promo</a>
+      </div>
+
+      <p class="footer">© <span id="year"></span> Appello Notturno • Forlì</p>
+    </section>
+  </main>
+
+  <script>
+    // Aggiorna anno automaticamente
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
